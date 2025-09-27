@@ -1,0 +1,56 @@
+.content{
+    padding: 1rem;
+    font-family: 'Roboto';
+}
+
+.content h1{
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.pkm-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+}
+
+.pkm-list .pkm{
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #f2f2f2;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #000;
+}
+
+.pkm-name{
+    display: flex;
+    text-transform: uppercase;
+}
+
+.pkm-types-list{
+    display: flex;
+}
+
+.pkm-type{
+    margin: .3rem;
+    background-color: #57575748;
+    padding: .3rem;
+    border-radius: .3rem;
+}
+
+/* Media Query para telas de PC (laptops e desktops) */
+@media screen and (min-width: 992px) {
+    .pkm-list {
+        grid-template-columns: 1fr 1fr 1fr 1fr; /* Muda para 4 colunas */
+    }
+
+    .content {
+        max-width: 992px; /* Limita a largura máxima do conteúdo */
+        margin: 1rem auto; /* Centraliza o conteúdo na tela */
+    }
+}
