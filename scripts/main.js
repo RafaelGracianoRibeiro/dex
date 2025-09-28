@@ -1,7 +1,3 @@
-//Fazendo uma requisição http para consumir a poke-api
-
-//Definindo a url da api com os 151 primeiros pokemons
-const url = 'https://pokeapi.co/api/v2/pokemon?limit=151';
 
 //Instanciando nossa lista html de pokemons
 const PokemonList = document.getElementById('pkm-list')
@@ -9,29 +5,37 @@ const PokemonList = document.getElementById('pkm-list')
 //Função que transforma o objeto pokemon em um li para escrevermos no html
 function convertPkmnToLi(pokemon){
     return`
-        <li class="pkm">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
+        <li class="pkm ${pokemon.color}">
+            <img src="${pokemon.sprites.front_default}">
             <h3 class="pkm-name">${pokemon.name}</h3>
-            <span class="pkm-id">#001</span>
+            <span class="pkm-id">#${pokemon.id}</span>
             <ol class="pkm-types-list">
-                <li class="pkm-type">Grass</li>
-                <li class="pkm-type">Poison</li>
+                ${convertTypesToLi(pokemon.types).join('')}
             </ol>
         </li>`
 }
 
-//Fazendo o fetch, buscando dados da url informada, essa função me retorna uma PROMISE
-//Uma promise significa que a busca não será imediate, a promise significa que depois de um tempo receberei os resultados
-//Usamos o método then para que QUANDO os dados forem recebidos ele execute alguma coisa
-fetch(url)
-    .then((response) => response.json())
-    .then((data) => data.results)
-    .then((pokemons) => {
-        console.log(pokemons)
+function convertTypesToLi(PkmTypes){
+    return PkmTypes.map((typeSlot) => {
+        return`
+            <li class="pkm-type ${typeSlot.type.name}">${typeSlot.type.name}</li>`
+    })
+}
+
+
+    pokeApi.getPokemons().then((pokemons) => {
+        const listItens = [];
+        let urlDetail;
+
         for(let pokemon of pokemons){//Para cada objeto na lista que importamos
             LiPkm = convertPkmnToLi(pokemon);//Converte o objeto para li 
-            PokemonList.innerHTML += LiPkm;
+            listItens.push(LiPkm);
         }
+
+        newHtml = listItens.join('');
+        PokemonList.innerHTML = newHtml;
+
+
     });
 
 

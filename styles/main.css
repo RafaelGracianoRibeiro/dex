@@ -30,6 +30,7 @@
 .pkm-name{
     display: flex;
     text-transform: uppercase;
+    color: #000000;
 }
 
 .pkm-types-list{
@@ -41,6 +42,8 @@
     background-color: #57575748;
     padding: .3rem;
     border-radius: .3rem;
+    text-transform: uppercase;
+    color: white;
 }
 
 /* Media Query para telas de PC (laptops e desktops) */
@@ -54,3 +57,4 @@
         margin: 1rem auto; /* Centraliza o conteúdo na tela */
     }
 }
+
