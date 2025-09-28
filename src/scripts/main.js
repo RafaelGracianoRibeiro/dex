@@ -25,8 +25,6 @@ function convertTypesToLi(PkmTypes){
 
     pokeApi.getPokemons().then((pokemons) => {
         const listItens = [];
-        let urlDetail;
-
         for(let pokemon of pokemons){//Para cada objeto na lista que importamos
             LiPkm = convertPkmnToLi(pokemon);//Converte o objeto para li 
             listItens.push(LiPkm);

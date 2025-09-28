@@ -58,3 +58,18 @@
     }
 }
 
+@media screen and (max-width: 600px) {
+    .pkm-list {
+        grid-template-columns: 1fr; /* Muda para 1 coluna */
+    }
+
+    .content h1 {
+        font-size: 1.5rem;
+    }
+
+    .pkm {
+        margin: 0.5rem;
+        padding: 0.5rem;
+    }
+}
+
